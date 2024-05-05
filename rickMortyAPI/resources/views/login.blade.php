@@ -34,6 +34,15 @@
         body {
             background-color: #E6E6E6;
         }
+
+        .input-bg-color {
+            background-color: #CED1D7;
+        }
+
+        .btn-primary {
+            background-color: #38589D;
+            border-color: #38589D;
+        }
     </style>
 </head>
 
@@ -55,39 +64,29 @@
         </ul>
     </nav>
     <div class="container">
-        <div class="row justify-content-center mt-2">
-            <div class="col-12 col-lg-4 col-md-6 p-5">
-                <div class="card border border-5 border-white p-2" style="width: 18rem;">
-                    <img src="http://localhost/testeTecnico/rickMortyAPI/resources/views/imgRickAndMorty.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="/character" class="btn btn-primary">Go somewhere</a>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 bg-white text-dark mt-5 p-5">
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input type="email" class="form-control input-bg-color" id="">
                     </div>
-                </div>
-            </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Senha</label>
+                        <input type="password" class="form-control input-bg-color" id="">
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Logar</button>
+                    </div>
+                </form>
 
-            <div class="col-12 col-lg-4 col-md-6 p-5">
-                <div class="card border border-5 border-white p-2" style="width: 18rem;">
-                    <img src="http://localhost/testeTecnico/rickMortyAPI/resources/views/imgRickAndMorty.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="/character" class="btn btn-primary">Go somewhere</a>
-                    </div>
+                <div class="d-flex justify-content-center">
+                    <a class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover" href="/register">Cadastrar-se</a>
                 </div>
-            </div>
 
-            <div class="col-12 col-lg-4 col-md-6 p-5">
-                <div class="card border border-5 border-white p-2" style="width: 18rem;">
-                    <img src="http://localhost/testeTecnico/rickMortyAPI/resources/views/imgRickAndMorty.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="/character" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
             </div>
+            <div class="col-2"></div>
         </div>
     </div>
 </body>

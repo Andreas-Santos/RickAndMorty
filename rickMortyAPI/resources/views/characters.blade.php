@@ -58,33 +58,33 @@
         <div class="row justify-content-center mt-2">
             <div class="col-12 col-lg-4 col-md-6 p-5">
                 <div class="card border border-5 border-white p-2" style="width: 18rem;">
-                    <img src="http://localhost/testeTecnico/rickMortyAPI/resources/views/imgRickAndMorty.jpeg" class="card-img-top" alt="...">
+                    <img src="https://rickandmortyapi.com/api/character/avatar/15.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="/character" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>
 
             <div class="col-12 col-lg-4 col-md-6 p-5">
                 <div class="card border border-5 border-white p-2" style="width: 18rem;">
-                    <img src="http://localhost/testeTecnico/rickMortyAPI/resources/views/imgRickAndMorty.jpeg" class="card-img-top" alt="...">
+                    <img src="https://rickandmortyapi.com/api/character/avatar/15.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="/character" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>
 
             <div class="col-12 col-lg-4 col-md-6 p-5">
                 <div class="card border border-5 border-white p-2" style="width: 18rem;">
-                    <img src="http://localhost/testeTecnico/rickMortyAPI/resources/views/imgRickAndMorty.jpeg" class="card-img-top" alt="...">
+                    <img src="https://rickandmortyapi.com/api/character/avatar/15.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="/character" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>
