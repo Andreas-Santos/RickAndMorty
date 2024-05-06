@@ -9,13 +9,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <style>
         .nav-custom-color {
-            background-color: #38589D
+            background-color: #38589D;
         }
 
         .nav-item {
             border-radius: 5px;
-            margin: 10px;
-
+            margin: 15px 10px;
+            width: 110px;
         }
 
         .nav-item:hover {
@@ -29,10 +29,27 @@
 
         .nav-link {
             color: black;
+            font-size: 16px;
+            font-family: 'Arial', sans-serif;
+            padding: 10px 15px;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar-expand-lg .navbar-nav .nav-link {
+            padding-right: 0.5rem;
+            padding-left: 0.5rem;
         }
 
         body {
             background-color: #E6E6E6;
+        }
+
+        .btn-primary {
+            background-color: #38589D;
+            border-color: #38589D;
         }
     </style>
 </head>
@@ -41,55 +58,111 @@
     <nav class="navbar-expand-lg">
         <ul class="nav justify-content-end nav-custom-border nav-custom-color">
             <li class="nav-item nav-item-custom-bg">
-                <a class="nav-link" href="/">HOME</a>
+                <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item nav-item-custom-bg">
-                <a class="nav-link" href="/characters">PERSONAGENS</a>
+                <a class="nav-link" href="/characters">Personagens</a>
             </li>
             <li class="nav-item nav-item-custom-bg">
-                <a class="nav-link" href="/about">SOBRE</a>
+                <a class="nav-link" href="/about">Sobre</a>
             </li>
             <li class="nav-item nav-item-custom-bg me-5">
-                <a class="nav-link" href="/login">LOGIN/CADASTRO</a>
+                <a class="nav-link" href="/login">Login</a>
             </li>
         </ul>
     </nav>
-    <div class="container">
-        <div class="row justify-content-center mt-2">
-            <div class="col-12 col-lg-4 col-md-6 p-5">
-                <div class="card border border-5 border-white p-2" style="width: 18rem;">
-                    <img src="http://localhost/testeTecnico/rickMortyAPI/resources/views/imgRickAndMorty.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="/character" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
+    <div class="container" id="containerId">
 
-            <div class="col-12 col-lg-4 col-md-6 p-5">
-                <div class="card border border-5 border-white p-2" style="width: 18rem;">
-                    <img src="http://localhost/testeTecnico/rickMortyAPI/resources/views/imgRickAndMorty.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="/character" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-4 col-md-6 p-5">
-                <div class="card border border-5 border-white p-2" style="width: 18rem;">
-                    <img src="http://localhost/testeTecnico/rickMortyAPI/resources/views/imgRickAndMorty.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="/character" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+
+    <script>
+        let listaPersonagens = [];
+
+        async function carregarCards() {
+            const url = 'https://rickandmortyapi.com/api/character'
+
+            const resposta = await fetch(url);
+            const resultado = await resposta.json();
+
+            console.log(resultado.results);
+
+            listaPersonagens = resultado.results;
+
+            let colunaAtual;
+
+            listaPersonagens.forEach((personagem, indice) => {
+                // Cria uma nova linha a cada três cards
+                if (indice % 3 === 0) {
+                    colunaAtual = document.createElement('div');
+                    colunaAtual.classList.add('row', 'mt-2');
+                    containerId.appendChild(colunaAtual);
+                }
+
+                // Pega os dados do personagem
+                const nome = personagem.name;
+                const imagemUrl = personagem.image;
+                const descricao = "Status: " + personagem.status + " | "
+                                     + "Espécie: " + personagem.species;
+
+                // Usa a função criarCard
+                const card = criarCard(nome, descricao, imagemUrl, '/characters/' + personagem.id);
+
+                // Adiciona o card à coluna atual
+                colunaAtual.appendChild(card);
+            });
+
+        }
+
+        carregarCards();
+
+        function criarCard(nome, descricao, imageUrl, linkUrl) {
+            // Cria o container-div para receber o card
+            const cardContainer = document.createElement('div');
+            cardContainer.classList.add('col-12', 'col-lg-4', 'col-md-6', 'p-3');
+            
+            // Cria o card
+            const card = document.createElement('div');
+            card.classList.add('card', 'border', 'border-5', 'border-white', 'p-2');
+            card.style.width = '100%';
+
+            const imagem = document.createElement('img');
+            imagem.classList.add('card-img-top');
+            imagem.src = imageUrl;
+            imagem.alt = nome;
+
+            const cardBody = document.createElement('div');
+            cardBody.classList.add('card-body');
+
+            const cardTitle = document.createElement('h5');
+            cardTitle.classList.add('card-title');
+            cardTitle.textContent = nome;
+
+
+            const cardText = document.createElement('p');
+            cardText.classList.add('card-text');
+            cardText.textContent = descricao;
+
+            const botao = document.createElement('a');
+            botao.classList.add('btn', 'btn-primary', 'd-flex', 'justify-content-center');
+            botao.href = linkUrl;
+            botao.textContent = 'Saiba mais';
+
+            // Insere as informações no cardbody
+            cardBody.appendChild(cardTitle);
+            cardBody.appendChild(cardText);
+            cardBody.appendChild(botao);
+
+            // Insere a imagem e o cardbody no card
+            card.appendChild(imagem);
+            card.appendChild(cardBody);
+
+            // Insere o card no container
+            cardContainer.appendChild(card);
+
+            return cardContainer;
+        }
+    </script>
+
 </body>
 
 </html>

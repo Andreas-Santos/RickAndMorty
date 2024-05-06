@@ -9,13 +9,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <style>
         .nav-custom-color {
-            background-color: #38589D
+            background-color: #38589D;
         }
 
         .nav-item {
             border-radius: 5px;
-            margin: 10px;
-
+            margin: 15px 10px;
+            width: 110px;
         }
 
         .nav-item:hover {
@@ -29,6 +29,18 @@
 
         .nav-link {
             color: black;
+            font-size: 16px;
+            font-family: 'Arial', sans-serif;
+            padding: 10px 15px;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar-expand-lg .navbar-nav .nav-link {
+            padding-right: 0.5rem;
+            padding-left: 0.5rem;
         }
 
         body {
@@ -41,16 +53,16 @@
     <nav class="navbar-expand-lg">
         <ul class="nav justify-content-end nav-custom-border nav-custom-color">
             <li class="nav-item nav-item-custom-bg">
-                <a class="nav-link" href="/">HOME</a>
+                <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item nav-item-custom-bg">
-                <a class="nav-link" href="/characters">PERSONAGENS</a>
+                <a class="nav-link" href="/characters">Personagens</a>
             </li>
             <li class="nav-item nav-item-custom-bg">
-                <a class="nav-link" href="/about">SOBRE</a>
+                <a class="nav-link" href="/about">Sobre</a>
             </li>
             <li class="nav-item nav-item-custom-bg me-5">
-                <a class="nav-link" href="/login">LOGIN/CADASTRO</a>
+                <a class="nav-link" href="/login">Login</a>
             </li>
         </ul>
     </nav>
