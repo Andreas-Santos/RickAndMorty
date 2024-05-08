@@ -55,10 +55,11 @@
 </head>
 
 <body>
-    <nav class="navbar-expand-lg">
-        <ul class="nav justify-content-end nav-custom-border nav-custom-color">
+    <nav class="navbar-expand-lg nav-custom-border nav-custom-color">
+        <ul class="nav justify-content-end">
+            <img class="mt-2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/2560px-Rick_and_Morty.svg.png" alt="" style="max-height: 50px; margin-right: 500px">
             <li class="nav-item nav-item-custom-bg">
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item nav-item-custom-bg">
                 <a class="nav-link" href="/characters">Personagens</a>
@@ -71,6 +72,13 @@
             </li>
         </ul>
     </nav>
+
+    <div class="container mt-3 w-75">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Pesquisar personagem" aria-label="Search" id="searchBar">
+            <button class="btn btn-primary" type="submit" onclick="">Buscar</button>
+        </form>
+    </div>
     <div class="container" id="containerId">
 
     </div>
@@ -79,14 +87,32 @@
         let listaPersonagens = [];
 
         async function carregarCards() {
-            const url = 'https://rickandmortyapi.com/api/character'
+            let url = 'https://rickandmortyapi.com/api/character'
 
-            const resposta = await fetch(url);
-            const resultado = await resposta.json();
+            // Pega os personagens de todas as páginas
+            while (url) {
+                const resposta = await fetch(url);
+                const resultado = await resposta.json();
 
-            console.log(resultado.results);
+                listaPersonagens.push(...resultado.results);
+                url = resultado.info.next;
+            }
 
-            listaPersonagens = resultado.results;
+            // Ordena a lista em ordem alfabética
+            listaPersonagens.sort(function(a, b) {
+                const nomeA = a.name;
+                const nomeB = b.name;
+
+                if (nomeA > nomeB) {
+                    return 1;
+                } else if (nomeB > nomeA) {
+                    return -1;
+                }
+
+                return 0;
+            });
+
+            console.log(listaPersonagens);
 
             let colunaAtual;
 
@@ -101,8 +127,8 @@
                 // Pega os dados do personagem
                 const nome = personagem.name;
                 const imagemUrl = personagem.image;
-                const descricao = "Status: " + personagem.status + " | "
-                                     + "Espécie: " + personagem.species;
+                const descricao = "Status: " + personagem.status + " | " +
+                    "Espécie: " + personagem.species;
 
                 // Usa a função criarCard
                 const card = criarCard(nome, descricao, imagemUrl, '/characters/' + personagem.id);
@@ -110,7 +136,6 @@
                 // Adiciona o card à coluna atual
                 colunaAtual.appendChild(card);
             });
-
         }
 
         carregarCards();
@@ -119,7 +144,7 @@
             // Cria o container-div para receber o card
             const cardContainer = document.createElement('div');
             cardContainer.classList.add('col-12', 'col-lg-4', 'col-md-6', 'p-3');
-            
+
             // Cria o card
             const card = document.createElement('div');
             card.classList.add('card', 'border', 'border-5', 'border-white', 'p-2');

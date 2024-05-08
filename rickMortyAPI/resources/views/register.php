@@ -50,8 +50,6 @@
         .btn-success {
             width: 150px;
         }
-
-
     </style>
 </head>
 
@@ -76,18 +74,18 @@
         <div class="row">
             <div class="col"></div>
             <div class="col-lg-8 col-10 bg-white text-dark mt-5 p-5">
-                <form>
+                <form method="POST">
                     <div class="row">
                         <div class="col">
                             <div class="mb-3">
                                 <label for="nome" class="form-label">Nome</label>
-                                <input type="text" class="form-control input-bg-color" id="nome">
+                                <input type="text" class="form-control input-bg-color" name="nome" id="nome" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="sobrenome" class="form-label">Sobrenome</label>
-                                <input type="text" class="form-control input-bg-color" id="sobrenome">
+                                <input type="text" class="form-control input-bg-color" name="sobrenome" id="sobrenome" required>
                             </div>
                         </div>
                     </div>
@@ -95,7 +93,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control input-bg-color" id="email">
+                                <input type="email" class="form-control input-bg-color" name="email" id="email" required>
                             </div>
                         </div>
                     </div>
@@ -103,13 +101,13 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="senha" class="form-label">Senha</label>
-                                <input type="password" class="form-control input-bg-color" id="senha">
+                                <input type="password" class="form-control input-bg-color" name="senha" id="senha" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="confSenha" class="form-label">Confirmar senha</label>
-                                <input type="password" class="form-control input-bg-color" id="confSenha">
+                                <input type="password" class="form-control input-bg-color" name="confSenha" id="confSenha" required>
                             </div>
                         </div>
                         <div class="d-flex justify-content-end mt-4">
