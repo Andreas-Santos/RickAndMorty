@@ -1,0 +1,43 @@
+.nav-custom-color {
+    background-color: #38589D;
+}
+
+.nav-item {
+    border-radius: 5px;
+    margin: 15px 10px;
+    width: 110px;
+}
+
+.nav-item:hover {
+    transform: scale(1.05);
+    background-color: white;
+}
+
+.nav-item-custom-bg {
+    background-color: rgba(178, 190, 215, 1);
+}
+
+.nav-link {
+    color: black;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    padding: 10px 15px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+body {
+    background-color: #E6E6E6;
+}
+
+.btn-primary {
+    background-color: #38589D;
+    border-color: #38589D;
+}
