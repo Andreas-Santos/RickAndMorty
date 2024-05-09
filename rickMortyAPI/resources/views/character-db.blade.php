@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rick and Morty</title>
-    
+
     <!-- Linka o bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <!-- Define favicon -->
-    <link rel="shortcut icon" type="image/jpg" href="/images/favicon.ico"/>
+    <link rel="shortcut icon" type="image/jpg" href="/images/favicon.ico" />
 
     <link rel="stylesheet" href="/css/global.css">
 </head>
@@ -40,8 +40,9 @@
                 <img src="<?= $character->imagem ?>" alt="" class="mt-4 ms-lg-4 rounded-circle img-fluid">
             </div>
             <div class="col-md-8 mt-4">
-                <form method="POST">
+                <form action="{{ route('character.delete', $character->id) }}" method="POST">
                     @csrf
+                    @method('DELETE')
                     <div class="row mb-2">
                         <div class="col-md-6 mb-2">
                             <label for="nome" class="form-label">Nome</label>
@@ -71,13 +72,13 @@
                     <div class="row mb-2">
                         <div class="col-md-12 mb-2">
                             <label for="episodio" class="form-label">Primeira Aparição</label>
-                            <input type="url" class="form-control input-bg-color" name="episodio" value="<?= $character->episodio ?>" id="episodio" aria-label="Disabled input example" disabled>
+                            <input type="text" class="form-control input-bg-color" name="episodio" value="<?= $character->episodio ?>" id="episodio" aria-label="Disabled input example" disabled>
                         </div>
                     </div>
                     <div class="row mt-4 mb-4">
                         <div class="col d-flex justify-content-end">
                             <button type="submit" class="btn btn-danger me-3" style="width: 100px;">Deletar</button>
-                            <button type="submit" class="btn btn-primary" style="width: 150px;">Editar</button>
+                            <a href="{{ route('character.edit', $character->id) }}" class="btn btn-primary" style="width: 150px;">Editar</a>
                         </div>
                     </div>
                 </form>

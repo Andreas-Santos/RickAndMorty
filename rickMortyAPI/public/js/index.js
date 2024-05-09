@@ -35,7 +35,7 @@ async function carregarCards() {
         if (indice % 3 === 0) {
             colunaAtual = document.createElement('div');
             colunaAtual.classList.add('row', 'mt-2');
-            containerId.appendChild(colunaAtual);
+            document.getElementById('containerId').appendChild(colunaAtual);
         }
 
         // Pega os dados do personagem

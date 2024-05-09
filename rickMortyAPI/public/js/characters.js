@@ -1,51 +1,54 @@
-let listaPersonagens = [];
-
 async function carregarCards() {
-    const resposta = await fetch();
-    const resultado = await resposta.json();
+    try {
+        const resposta = await fetch('../database/database.sqlite');
+        const buffer = await resposta.arrayBuffer();
+        const db = new SQL.Database(new Uint8Array(buffer));
 
-    listaPersonagens.push(...resultado.results);
-    url = resultado.info.next;
+        const query = "SELECT * FROM personagens";
+        const resultado = db.exec(query);
+
+        // Ordena a lista em ordem alfabética
+        resultado.sort(function (a, b) {
+            const nomeA = a.name;
+            const nomeB = b.name;
+
+            if (nomeA > nomeB) {
+                return 1;
+            } else if (nomeB > nomeA) {
+                return -1;
+            }
+
+            return 0;
+        });
+
+        console.log(resultado);
+
+        let colunaAtual;
 
 
-    // Ordena a lista em ordem alfabética
-    listaPersonagens.sort(function (a, b) {
-        const nomeA = a.name;
-        const nomeB = b.name;
+        resultado.forEach((personagem, indice) => {
+            // Cria uma nova linha a cada três cards
+            if (indice % 3 === 0) {
+                colunaAtual = document.createElement('div');
+                colunaAtual.classList.add('row', 'mt-2');
+                document.getElementById('containerId').appendChild(colunaAtual);
+            }
 
-        if (nomeA > nomeB) {
-            return 1;
-        } else if (nomeB > nomeA) {
-            return -1;
-        }
+            // Pega os dados do personagem
+            const nome = personagem.name;
+            const imagemUrl = personagem.image;
+            const descricao = "Status: " + personagem.status + " | " +
+                "Espécie: " + personagem.species;
 
-        return 0;
-    });
+            // Usa a função criarCard
+            const card = criarCard(nome, descricao, imagemUrl, '/characters/' + personagem.id);
 
-    console.log(listaPersonagens);
-
-    let colunaAtual;
-
-    listaPersonagens.forEach((personagem, indice) => {
-        // Cria uma nova linha a cada três cards
-        if (indice % 3 === 0) {
-            colunaAtual = document.createElement('div');
-            colunaAtual.classList.add('row', 'mt-2');
-            containerId.appendChild(colunaAtual);
-        }
-
-        // Pega os dados do personagem
-        const nome = personagem.name;
-        const imagemUrl = personagem.image;
-        const descricao = "Status: " + personagem.status + " | " +
-            "Espécie: " + personagem.species;
-
-        // Usa a função criarCard
-        const card = criarCard(nome, descricao, imagemUrl, '/characters/' + personagem.id);
-
-        // Adiciona o card à coluna atual
-        colunaAtual.appendChild(card);
-    });
+            // Adiciona o card à coluna atual
+            colunaAtual.appendChild(card);
+        });
+    } catch (erro) {
+        console.error('Erro ao carregar os personagens:', erro);
+    }
 }
 
 carregarCards();

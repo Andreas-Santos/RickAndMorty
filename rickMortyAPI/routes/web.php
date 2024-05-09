@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CharacterController;
-use App\Http\Controllers\RegisterCharacterController;
 use App\Http\Controllers\DBcharacterController;
 
 Route::get('/', function () {
@@ -33,6 +32,12 @@ Route::post('/register', [RegisterController::class, 'register']);
 
 Route::get('/characters/{id}', [CharacterController::class, 'character']);
 
-Route::post('/characters/{id}', [RegisterCharacterController::class, 'register']);
+Route::post('/characters/{id}', [CharacterController::class, 'register']);
 
 Route::get('/character-db/{id}', [DBcharacterController::class, 'characterdb']);
+
+Route::delete('/character-db/{id}', [DBcharacterController::class, 'delete'])->name('character.delete');
+
+Route::put('/character-db/{id}', [DBcharacterController::class, 'update'])->name('character.update');
+
+Route::get('/character-db/{id}/edit', [DBcharacterController::class, 'edit'])->name('character.edit');

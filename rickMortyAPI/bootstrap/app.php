@@ -14,7 +14,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->validateCsrfTokens(except: [
             '/register',
             '/login',
-            "/characters/*" // <-- exclude this route
+            "/characters/*",
+            "character-db/*" // <-- exclude this route
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
