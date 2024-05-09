@@ -22,7 +22,7 @@ class DBcharacterController extends Controller
     {
         Character::where('id', $id)->first()->delete();
 
-        return redirect('/characters')->with('Success', 'Personagem excluído com sucesso!'); //inserir mensagem para o usuário
+        return redirect('/characters')->with('success', 'Personagem excluído com sucesso!'); //inserir mensagem para o usuário
     }
 
     public function edit($id)

@@ -11,13 +11,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <!-- Define favicon -->
-    <link rel="shortcut icon" type="image/jpg" href="/images/favicon.ico"/>
+    <link rel="shortcut icon" type="image/jpg" href="/images/favicon.ico" />
 
     <link rel="stylesheet" href="/css/global.css">
 </head>
 
 <body>
-    <nav class="navbar-expand-lg nav-custom-border nav-custom-color">
+    <nav class="navbar-expand-lg nav-custom-border nav-custom-color mb-2">
         <ul class="nav justify-content-end">
             <img class="mt-2" src="/images/logo.png" alt="" style="max-height: 50px; margin-right: 500px">
             <li class="nav-item nav-item-custom-bg">
@@ -36,8 +36,21 @@
     </nav>
     <div class="container">
         <div class="row">
+            @if(session()->has('error'))
+                <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                    <p>{{ session('error')}}</p>
+                    <button class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+                </div>
+            @endif
+
+            @if(session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                    <p>{{ session('success')}}</p>
+                    <button class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+                </div>
+            @endif
             <div class="col"></div>
-            <div class="col-lg-8 col-10 bg-white text-dark mt-5 p-5">
+            <div class="col-lg-8 col-10 bg-white text-dark mt-3 p-5">
                 <form method="POST" action="/login">
                     @csrf
                     <div class="mb-3">

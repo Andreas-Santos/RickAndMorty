@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <nav class="navbar-expand-lg nav-custom-border nav-custom-color">
+    <nav class="navbar-expand-lg nav-custom-border nav-custom-color mb-2">
         <ul class="nav justify-content-end">
             <img class="mt-2" src="/images/logo.png" alt="" style="max-height: 50px; margin-right: 500px">
             <li class="nav-item nav-item-custom-bg">
@@ -36,8 +36,22 @@
     </nav>
     <div class="container">
         <div class="row">
+            @if(session()->has('error'))
+                <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                    <p>{{ session('error')}}</p>
+                    <button class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+                </div>
+            @endif
+
+            @if(session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show m-3" role="alert">
+                    <p>{{ session('success')}}</p>
+                    <button class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+                </div>
+            @endif
             <div class="col"></div>
-            <div class="col-lg-8 col-10 bg-white text-dark mt-5 p-5">
+            <div class="col-lg-8 col-10 bg-white text-dark mt-3 p-5">
+
                 <form method="POST">
                     @csrf
                     <div class="row">
@@ -66,13 +80,13 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="senha" class="form-label">Senha</label>
-                                <input type="password" class="form-control input-bg-color" name="senha" id="senha" required>
+                                <input type="password" class="form-control input-bg-color" minlength="6" name="senha" id="senha" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="confSenha" class="form-label">Confirmar senha</label>
-                                <input type="password" class="form-control input-bg-color" name="confSenha" id="confSenha" required>
+                                <input type="password" class="form-control input-bg-color" minlength="6" name="confSenha" id="confSenha" required>
                             </div>
                         </div>
                         <div class="d-flex justify-content-end mt-4">

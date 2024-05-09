@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <nav class="navbar-expand-lg nav-custom-border nav-custom-color">
+    <nav class="navbar-expand-lg nav-custom-border nav-custom-color mb-2">
         <ul class="nav justify-content-end">
             <img class="mt-2" src="/images/logo.png" alt="" style="max-height: 50px; margin-right: 500px">
             <li class="nav-item nav-item-custom-bg">
@@ -34,7 +34,20 @@
             </li>
         </ul>
     </nav>
-    <div class="container-fluid bg-white text-dark w-auto m-5">
+    @if(session()->has('error'))
+        <div class="alert alert-danger alert-dismissible fade show mt-3 me-5 ms-5" role="alert">
+            <p>{{ session('error')}}</p>
+            <button class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+        </div>
+    @endif
+
+    @if(session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show mt-3 me-5 ms-5" role="alert">
+            <p>{{ session('success')}}</p>
+            <button class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+        </div>
+    @endif
+    <div class="container-fluid bg-white text-dark w-auto me-5 ms-5 mt-3">
         <div class="row">
             <div class="col-md-4">
                 <img src="<?= $character->imagem ?>" alt="" class="mt-4 ms-lg-4 rounded-circle img-fluid">
