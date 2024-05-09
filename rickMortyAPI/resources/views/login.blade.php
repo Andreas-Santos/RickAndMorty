@@ -41,12 +41,12 @@
                 <form method="POST" action="/login">
                     @csrf
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input type="email" class="form-control input-bg-color" id="">
+                        <label for="emailLogin" class="form-label">Email</label>
+                        <input type="email" class="form-control input-bg-color" name="emailLogin" id="emailLogin" required>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Senha</label>
-                        <input type="password" class="form-control input-bg-color" id="">
+                        <label for="senhaLogin" class="form-label">Senha</label>
+                        <input type="password" class="form-control input-bg-color" name="senhaLogin" id="senhaLogin" required>
                     </div>
                     <div class="d-flex justify-content-end mt-5">
                         <button type="submit" class="btn btn-primary" style="width: 150px;">Logar</button>

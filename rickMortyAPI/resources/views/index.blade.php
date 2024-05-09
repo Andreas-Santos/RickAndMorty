@@ -34,12 +34,6 @@
             </li>
         </ul>
     </nav>
-    <div class="container mt-3 w-75">
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Pesquisar personagem" aria-label="Search" id="searchBar">
-            <button class="btn btn-primary" type="submit" onclick="">Buscar</button>
-        </form>
-    </div>
     <div class="container" id="containerId">
         <!-- onde os cards serão renderizados -->
     </div>

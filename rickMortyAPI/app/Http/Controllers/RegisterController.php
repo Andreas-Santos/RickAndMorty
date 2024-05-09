@@ -14,17 +14,24 @@ class RegisterController extends Controller
         $senha = request('senha');
         $confSenha = request('confSenha');
 
+        $usuarioCadastrado = User::where('email', $email)->first();
+        
+        // Se o email for encontrado no banco
+        if($usuarioCadastrado) {
+            return back()->with('error', 'Já existe um usuário com este e-mail!'); //inserir mensagem de erro para o usuário
+        }
+
         if ($senha !== $confSenha) {
-            return back();;
+            return back()->with('error', 'As senhas não coincidem!'); //inserir mensagem de erro para o usuário
         }
 
         User::create([
             'nome' => $nome,
             'sobrenome' => $sobrenome,
             'email' => $email,
-            'senha' => bcrypt($senha)
+            'senha' => md5($senha)
         ]);
 
-        return redirect('/login');
+        return redirect('/login')->with('success', 'Cadastro realizado com sucesso!'); //inserir mensagem de sucesso para o usuário
     }
 }

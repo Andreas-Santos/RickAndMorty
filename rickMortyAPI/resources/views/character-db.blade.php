@@ -16,14 +16,6 @@
     <link rel="stylesheet" href="/css/global.css">
 </head>
 
-<?php
-$url = $character['episode'][0];
-
-$json = file_get_contents($url);
-
-$episode = json_decode($json, true);
-?>
-
 <body>
     <nav class="navbar-expand-lg nav-custom-border nav-custom-color">
         <ul class="nav justify-content-end">
@@ -45,7 +37,7 @@ $episode = json_decode($json, true);
     <div class="container-fluid bg-white text-dark w-auto m-5">
         <div class="row">
             <div class="col-md-4">
-                <img src="<?= $character['image'] ?>" alt="" class="mt-4 ms-lg-4 rounded-circle img-fluid">
+                <img src="<?= $character->imagem ?>" alt="" class="mt-4 ms-lg-4 rounded-circle img-fluid">
             </div>
             <div class="col-md-8 mt-4">
                 <form method="POST">
@@ -53,38 +45,39 @@ $episode = json_decode($json, true);
                     <div class="row mb-2">
                         <div class="col-md-6 mb-2">
                             <label for="nome" class="form-label">Nome</label>
-                            <input type="text" class="form-control input-bg-color" name="nome" value="<?= $character['name'] ?>" id="nome" aria-label="Disabled input example" disabled>
+                            <input type="text" class="form-control input-bg-color" name="nome" value="<?= $character->nome ?>" id="nome" aria-label="Disabled input example" disabled>
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="status" class="form-label">Status</label>
-                            <input type="text" class="form-control input-bg-color" name="status" value="<?= $character['status'] ?>" id="status" aria-label="Disabled input example" disabled>
+                            <input type="text" class="form-control input-bg-color" name="status" value="<?= $character->status ?>" id="status" aria-label="Disabled input example" disabled>
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6 mb-2">
                             <label for="especie" class="form-label">Espécie</label>
-                            <input type="text" class="form-control input-bg-color" name="especie" value="<?= $character['species'] ?>" id="especie" aria-label="Disabled input example" disabled>
+                            <input type="text" class="form-control input-bg-color" name="especie" value="<?= $character->especie ?>" id="especie" aria-label="Disabled input example" disabled>
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="genero" class="form-label">Gênero</label>
-                            <input type="text" class="form-control input-bg-color" name="genero" value="<?= $character['gender'] ?>" id="genero" aria-label="Disabled input example" disabled>
+                            <input type="text" class="form-control input-bg-color" name="genero" value="<?= $character->genero ?>" id="genero" aria-label="Disabled input example" disabled>
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-12 mb-2">
                             <label for="localizacao" class="form-label">Localização</label>
-                            <input type="text" class="form-control input-bg-color" name="localizacao" value="<?= $character['location']['name'] ?>" id="localizacao" aria-label="Disabled input example" disabled>
+                            <input type="text" class="form-control input-bg-color" name="localizacao" value="<?= $character->localizacao ?>" id="localizacao" aria-label="Disabled input example" disabled>
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-12 mb-2">
                             <label for="episodio" class="form-label">Primeira Aparição</label>
-                            <input type="url" class="form-control input-bg-color" name="episodio" value="<?= $episode['episode'] . " - " . $episode['name'] ?>" id="episodio" aria-label="Disabled input example" disabled>
+                            <input type="url" class="form-control input-bg-color" name="episodio" value="<?= $character->episodio ?>" id="episodio" aria-label="Disabled input example" disabled>
                         </div>
                     </div>
                     <div class="row mt-4 mb-4">
-                        <div class="col-md-12 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary" style="width: 150px;">Cadastrar</button>
+                        <div class="col d-flex justify-content-end">
+                            <button type="submit" class="btn btn-danger me-3" style="width: 100px;">Deletar</button>
+                            <button type="submit" class="btn btn-primary" style="width: 150px;">Editar</button>
                         </div>
                     </div>
                 </form>
