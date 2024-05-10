@@ -72,7 +72,7 @@
                 <br>
 
                 <h4><i>Site Rick and Morty</i></h4>
-                <p>GitHub: <a href="https://github.com/Andreas-Santos/testeTecnico">https://github.com/Andreas-Santos/testeTecnico</a></p>
+                <p>GitHub: <a href="https://github.com/Andreas-Santos/testeTecnico">https://github.com/Andreas-Santos/RickAndMortySearcher</a></p>
                 <p>E por último o link para acesso ao github deste projeto que foi desenvolvido utilizando Laravel, SQLite e Bootstrap.</p>
             </div>
         </div>
