@@ -1,14 +1,14 @@
 # RickAndMortySearcher
 
-![banner-RickAndMortySearcher](images\banner.png)
+<img src="images\banner.png" alt="banner-RickAndMortySearcher">
 
 O **RickAndMortySearcher** é uma plataforma desenvolvida com o framework *Laravel*, integrando a [API do Rick and Morty](https://rickandmortyapi.com/) para fornecer aos usuários uma maneira fácil e intuitiva de buscar informações sobre qualquer personagem da série. Utilizando *SQLite3* como banco de dados local e um frontend desenvolvido em *HTML*, *CSS* (utilizando Bootstrap) e *JavaScript*, o projeto oferece aos usuários a capacidade de realizar operações CRUD, como cadastro, edição e deleção de dados, desde que estejam logados. Com esta aplicação, os fãs de Rick and Morty podem explorar e gerenciar dados dos seus personagens favoritos de forma personalizada.
 
-![laravel](images\icons\laravel-icon.png)
-![sqlite](images\icons\sqlite-icon.png)
-![html](images\icons\html-icon.png)
-![bootstrap](images\icons\bootstrap-icon.png)
-![javascript](images\icons\javascript-icon.png)
+<img src="images\icons\laravel-icon.png" alt="laravel">
+<img src="images\icons\sqlite-icon.png" alt="sqlite">
+<img src="images\icons\html-icon.png" alt="html">
+<img src="images\icons\bootstrap-icon.png" alt="bootstrap">
+<img src="images\icons\javascript-icon.png" alt="javascript">
 
 ## Instalação
 
@@ -45,26 +45,26 @@ Isso iniciará um servidor de desenvolvimento local. Você pode acessar o seu pr
 
 Na página inicial, você encontrará uma lista de personagens com dados obtidos diretamente da [API do Rick and Morty](https://rickandmortyapi.com/).
 
-![Tela Inicial](images\home.png)
+<img src="images\home.png" alt="Tela Inicial">
     
 Ao clicar em **"Saiba mais"**, você será redirecionado para uma página com informações adicionais sobre o personagem, juntamente com um botão para cadastrá-lo em nosso banco de dados local. Porém, este recurso só está disponível para usuários autenticados. Caso você não esteja logado, será redirecionado para a tela de login.
    
-![Detalhes do Personagem](images\detalhesPersonagem.png)
+<img src="images\detalhesPersonagem.png" alt="Detalhes do Personagem">
    
 A página **"Personagens"** exibe todos os personagens cadastrados em nosso banco de dados local. Ao clicar em "Saiba mais", você será levado a uma tela com informações detalhadas do personagem no banco de dados, onde poderá deletar ou editar suas informações. Novamente, essas ações só estão disponíveis para usuários autenticados.
     
 A página **"Sobre"** apresenta um breve perfil do criador do projeto.
   
-![Sobre](images\sobre.png)
+<img src="images\sobre.png" alt="Sobre">
 
 A página **"Entrar"** leva você à tela de login. Quando você já está autenticado, o botão muda para **"Sair"**, permitindo que você faça logout.
 Na tela de login, há um link direto para a página de cadastro caso você ainda não tenha uma conta.
 
-![Tela de Login](images\login.png)
+<img src="images\login.png" alt="Tela de Login">
 
 ## Autor
 
-![Foto Autor](images\foto.png)
+<img src="images\foto.jpg" alt="Foto Autor" style="max-height: 150px"><br>
 Andreas Santos
 
 ## Licença
