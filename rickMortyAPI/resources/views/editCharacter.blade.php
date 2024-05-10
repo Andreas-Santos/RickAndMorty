@@ -29,9 +29,16 @@
             <li class="nav-item nav-item-custom-bg">
                 <a class="nav-link" href="/about">Sobre</a>
             </li>
+            @if($user)
             <li class="nav-item nav-item-custom-bg me-5">
-                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/logout">Sair</a>
             </li>
+            @endif
+            @if(!$user)
+            <li class="nav-item nav-item-custom-bg me-5">
+                <a class="nav-link" href="/login">Entrar</a>
+            </li>
+            @endif
         </ul>
     </nav>
     @if(session()->has('error'))
@@ -59,33 +66,33 @@
                     <div class="row mb-2">
                         <div class="col-md-6 mb-2">
                             <label for="nome" class="form-label">Nome</label>
-                            <input type="text" class="form-control input-bg-color" name="nome" value="<?= $character->nome ?>" id="nome">
+                            <input type="text" class="form-control input-bg-color" name="nome" value="<?= $character->nome ?>" id="nome" required>
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="status" class="form-label">Status</label>
-                            <input type="text" class="form-control input-bg-color" name="status" value="<?= $character->status ?>" id="status">
+                            <input type="text" class="form-control input-bg-color" name="status" value="<?= $character->status ?>" id="status" required>
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6 mb-2">
                             <label for="especie" class="form-label">Espécie</label>
-                            <input type="text" class="form-control input-bg-color" name="especie" value="<?= $character->especie ?>" id="especie">
+                            <input type="text" class="form-control input-bg-color" name="especie" value="<?= $character->especie ?>" id="especie" required>
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="genero" class="form-label">Gênero</label>
-                            <input type="text" class="form-control input-bg-color" name="genero" value="<?= $character->genero ?>" id="genero">
+                            <input type="text" class="form-control input-bg-color" name="genero" value="<?= $character->genero ?>" id="genero" required>
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-12 mb-2">
                             <label for="localizacao" class="form-label">Localização</label>
-                            <input type="text" class="form-control input-bg-color" name="localizacao" value="<?= $character->localizacao ?>" id="localizacao">
+                            <input type="text" class="form-control input-bg-color" name="localizacao" value="<?= $character->localizacao ?>" id="localizacao" required>
                         </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-12 mb-2">
                             <label for="episodio" class="form-label">Primeira Aparição</label>
-                            <input type="text" class="form-control input-bg-color" name="episodio" value="<?= $character->episodio ?>" id="episodio">
+                            <input type="text" class="form-control input-bg-color" name="episodio" value="<?= $character->episodio ?>" id="episodio" required>
                         </div>
                     </div>
                     <div class="row mt-4 mb-4">

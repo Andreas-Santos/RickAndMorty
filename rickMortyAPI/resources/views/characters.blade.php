@@ -29,34 +29,47 @@
             <li class="nav-item nav-item-custom-bg">
                 <a class="nav-link" href="/about">Sobre</a>
             </li>
+            @if($user)
             <li class="nav-item nav-item-custom-bg me-5">
-                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/logout">Sair</a>
             </li>
+            @endif
+            @if(!$user)
+            <li class="nav-item nav-item-custom-bg me-5">
+                <a class="nav-link" href="/login">Entrar</a>
+            </li>
+            @endif
         </ul>
     </nav>
     <div class="container" id="containerId">
         @if(session()->has('error'))
-            <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-                <p>{{ session('error')}}</p>
-                <button class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
-            </div>
+        <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+            <p>{{ session('error')}}</p>
+            <button class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+        </div>
         @endif
 
         @if(session()->has('success'))
-            <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-                <p>{{ session('success')}}</p>
-                <button class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
-            </div>
+        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+            <p>{{ session('success')}}</p>
+            <button class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+        </div>
         @endif
+
+        @if(count($characters) == 0)
+        <div class="row">
+            <div class="col container-fluid d-flex justify-content-center" style="margin-top:250px;">
+                <p style="font-size: 22px;">Nenhum conteúdo a ser exibido</p>
+            </div>
+        </div>
+        @endif
+
         <!-- onde os cards serão renderizados -->
     </div>
 </body>
 
 <?php
 
-use App\Models\Character;
-
-$characters = Character::all();
 ?>
 
 <script>

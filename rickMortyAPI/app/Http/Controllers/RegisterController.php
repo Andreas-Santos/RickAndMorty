@@ -3,35 +3,37 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
     public function register()
     {
         $nome = request('nome');
-        $sobrenome = request('sobrenome');
         $email = request('email');
         $senha = request('senha');
         $confSenha = request('confSenha');
-
-        $usuarioCadastrado = User::where('email', $email)->first();
         
-        // Se o email for encontrado no banco
+        // Verifica se o e-mail já possui cadastro
+        $usuarioCadastrado = User::where('email', $email)->first();
         if($usuarioCadastrado) {
-            return back()->with('error', 'Já existe um usuário com este e-mail!'); //inserir mensagem de erro para o usuário
+            return back()->with('error', 'Já existe um usuário com este e-mail!');
         }
 
         if ($senha !== $confSenha) {
-            return back()->with('error', 'As senhas não coincidem!'); //inserir mensagem de erro para o usuário
+            return back()->with('error', 'As senhas não coincidem!');
         }
 
+        // Insere o usuário no banco
         User::create([
-            'nome' => $nome,
-            'sobrenome' => $sobrenome,
+            'name' => $nome,
             'email' => $email,
-            'senha' => md5($senha)
+            'email_verified_at' => now(),
+            'password' => Hash::make($senha),
+            'remember_token' => Str::random(10)
         ]);
 
-        return redirect('/login')->with('success', 'Cadastro realizado com sucesso!'); //inserir mensagem de sucesso para o usuário
+        return redirect('/login')->with('success', 'Cadastro realizado com sucesso!'); 
     }
 }

@@ -2,29 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 
 class LoginController extends Controller
 {
-    public function login()
+    public function login(Request $request)
     {
-        $emailLogin = request('emailLogin');
-        $senhaLogin = request('senhaLogin');
+        $dados = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => 'required'
+        ]);
 
-        $usuarioCadastrado = User::where('email', $emailLogin)->first();
-
-        if(!$usuarioCadastrado) {
-            return back()->with('error', 'Não existe cadastro para este e-mail!'); // inserir mensagem de erro para o usuário
+        if(Auth::attempt($dados)) {
+            $request->session()->regenerate();
+            return redirect('/')->with('success', 'Login realizado com sucesso!');
         }
-
-        $senhaUsuario = $usuarioCadastrado['senha'];
-        $senhaLogin = md5($senhaLogin);
-
-        if($senhaLogin !== $senhaUsuario) {
-            return back()->with('error', 'Senha inválida!'); // inserir mensagem de erro para o usuário
+        else{
+            return back()->with('error', 'Usuário ou senha inválidos!');
         }
+    }
 
-        return redirect('/')->with('success', 'Login realizado com sucesso!'); // inserir mensagem de sucesso para o usuário
+    public function logout() {
+        Auth::logout();
+
+        return redirect('/login')->with('success', 'Você foi desconectado com sucesso!');
     }
 }

@@ -29,9 +29,16 @@
             <li class="nav-item nav-item-custom-bg">
                 <a class="nav-link" href="/about">Sobre</a>
             </li>
+            @if($user)
             <li class="nav-item nav-item-custom-bg me-5">
-                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/logout">Sair</a>
             </li>
+            @endif
+            @if(!$user)
+            <li class="nav-item nav-item-custom-bg me-5">
+                <a class="nav-link" href="/login">Entrar</a>
+            </li>
+            @endif
         </ul>
     </nav>
     <div class="container" id="containerId">

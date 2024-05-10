@@ -15,7 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
             '/register',
             '/login',
             "/characters/*",
-            "character-db/*" // <-- exclude this route
+            "character-db/*"
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

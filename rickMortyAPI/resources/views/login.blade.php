@@ -30,7 +30,7 @@
                 <a class="nav-link" href="/about">Sobre</a>
             </li>
             <li class="nav-item nav-item-custom-bg me-5">
-                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/register">Cadastrar</a>
             </li>
         </ul>
     </nav>
@@ -54,12 +54,12 @@
                 <form method="POST" action="/login">
                     @csrf
                     <div class="mb-3">
-                        <label for="emailLogin" class="form-label">Email</label>
-                        <input type="email" class="form-control input-bg-color" name="emailLogin" id="emailLogin" required>
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control input-bg-color" name="email" id="email" required>
                     </div>
                     <div class="mb-3">
-                        <label for="senhaLogin" class="form-label">Senha</label>
-                        <input type="password" class="form-control input-bg-color" name="senhaLogin" id="senhaLogin" required>
+                        <label for="password" class="form-label">Senha</label>
+                        <input type="password" class="form-control input-bg-color" name="password" id="password" required>
                     </div>
                     <div class="d-flex justify-content-end mt-5">
                         <button type="submit" class="btn btn-primary" style="width: 150px;">Logar</button>

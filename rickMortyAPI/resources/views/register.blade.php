@@ -30,7 +30,7 @@
                 <a class="nav-link" href="/about">Sobre</a>
             </li>
             <li class="nav-item nav-item-custom-bg me-5">
-                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/login">Entrar</a>
             </li>
         </ul>
     </nav>
@@ -59,12 +59,6 @@
                             <div class="mb-3">
                                 <label for="nome" class="form-label">Nome</label>
                                 <input type="text" class="form-control input-bg-color" name="nome" id="nome" required>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="mb-3">
-                                <label for="sobrenome" class="form-label">Sobrenome</label>
-                                <input type="text" class="form-control input-bg-color" name="sobrenome" id="sobrenome" required>
                             </div>
                         </div>
                     </div>
